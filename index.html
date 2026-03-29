@@ -217,8 +217,41 @@
   .cta-title em { color: var(--accent-light); font-style: normal; }
   .cta-sub { font-size: 12px; color: rgba(255,255,255,.4); letter-spacing: .08em; margin-bottom: 22px; }
 
+  /* ── TALLY BUTTON ── */
+  .tally-btn {
+    display: block; width: 100%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    color: #fff; text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px; font-weight: 500;
+    letter-spacing: .06em;
+    padding: 18px 24px; border-radius: 4px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 20px rgba(200,144,42,.4);
+    transition: opacity .2s, transform .2s, box-shadow .2s;
+    position: relative;
+  }
+  .tally-btn:hover {
+    opacity: .92; transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(200,144,42,.5);
+  }
+  .tally-btn:active { transform: translateY(0); }
+  .tally-btn .btn-sub {
+    display: block; font-size: 11px; font-weight: 300;
+    color: rgba(255,255,255,.75); margin-top: 4px; letter-spacing: .08em;
+  }
+
+  /* ── CONTACT GRID ── */
+  .contact-divider {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 16px;
+  }
+  .contact-divider::before,
+  .contact-divider::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.12); }
+  .contact-divider span { font-size: 11px; color: rgba(255,255,255,.3); white-space: nowrap; letter-spacing: .1em; }
+
   .contact-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;
   }
   .contact-box {
     background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
@@ -229,11 +262,15 @@
     font-weight: 300; margin-bottom: 6px; display: block;
   }
   .contact-box .c-value {
-    font-size: 14px; color: rgba(255,255,255,.75); font-weight: 400; letter-spacing: .04em;
+    font-size: 15px; color: rgba(255,255,255,.85); font-weight: 500; letter-spacing: .03em;
+  }
+  .contact-box .c-value a {
+    color: inherit; text-decoration: none;
   }
   .contact-box .c-note {
-    font-size: 11px; color: rgba(255,255,255,.35); margin-top: 5px; font-weight: 300; line-height: 1.6;
+    font-size: 11px; color: rgba(255,255,255,.35); margin-top: 6px; font-weight: 300; line-height: 1.7;
   }
+
   .qr-box {
     background: rgba(255,255,255,.06); border: 1px dashed rgba(255,255,255,.15);
     border-radius: 3px; padding: 14px 16px;
@@ -247,6 +284,7 @@
     font-size: 20px; flex-shrink: 0;
   }
   .qr-box p { font-size: 11px; color: rgba(255,255,255,.3); font-weight: 300; line-height: 1.6; text-align: left; }
+
   .cta-note { font-size: 11px; color: rgba(255,255,255,.28); }
 
   /* ── ANIMATIONS ── */
@@ -270,6 +308,7 @@
     .qr-box { grid-column: span 1; }
     .profile-card, .price-box, .cta-block { padding: 22px 16px; }
     .hero { padding: 44px 18px 38px; }
+    .tally-btn { font-size: 15px; padding: 16px 20px; }
   }
 </style>
 </head>
@@ -386,7 +425,7 @@
   </div>
 
   <!-- CTA -->
-  <div class="section-label d7"><span>お問い合わせ</span></div>
+  <div class="section-label d7"><span>お問い合わせ・お申し込み</span></div>
   <div class="cta-block d7">
     <p class="cta-title">
       「ベテランに<em>直接</em>相談したい」<br>
@@ -394,15 +433,27 @@
     </p>
     <p class="cta-sub">そんな時は、ぜひお気軽にお声がけください</p>
 
+    <!-- TALLY BUTTON -->
+    <a class="tally-btn" href="https://tally.so/r/aQ0pBW" target="_blank" rel="noopener">
+      Webから申し込む
+      <span class="btn-sub">📋 24時間受付・フォームで簡単入力</span>
+    </a>
+
+    <!-- DIVIDER -->
+    <div class="contact-divider">
+      <span>またはお電話・メールでも受け付けています</span>
+    </div>
+
+    <!-- CONTACT INFO -->
     <div class="contact-grid">
       <div class="contact-box">
         <span class="c-label">TEL</span>
-        <div class="c-value">（番号記載予定）</div>
-        <p class="c-note">2回コールでお切りください<br>折り返しご連絡いたします</p>
+        <div class="c-value"><a href="tel:090-xxxx-xxxx">090-xxxx-xxxx</a></div>
+        <p class="c-note">お電話は2回おかけください<br>折り返しご連絡いたします</p>
       </div>
       <div class="contact-box">
         <span class="c-label">MAIL</span>
-        <div class="c-value">（アドレス記載予定）</div>
+        <div class="c-value" style="font-size:12px;"><a href="mailto:akita.pc.support.h@gmail.com">akita.pc.support.h<br>@gmail.com</a></div>
         <p class="c-note">お気軽にお問い合わせください</p>
       </div>
       <div class="qr-box">
