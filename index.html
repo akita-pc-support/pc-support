@@ -159,19 +159,21 @@
     background: #fff; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden;
     opacity: 0; animation: fadeUp .7s ease forwards;
   }
-  .price-table { width: 100%; border-collapse: collapse; }
-  .price-table tr { border-bottom: 1px solid var(--rule); }
-  .price-table tr:last-child { border-bottom: none; }
-  .price-table tr:hover td { background: var(--cream); }
-  .price-table td { padding: 12px 16px; font-size: 13px; transition: background .15s; }
-  .price-table td:first-child { color: #3a3a4a; font-weight: 400; }
-  .price-table td:last-child {
-    text-align: right; color: var(--accent); font-weight: 500;
-    white-space: nowrap; font-family: 'Noto Serif JP', serif; font-size: 14px;
+  .price-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 16px; border-bottom: 1px solid var(--rule);
+    transition: background .15s;
   }
-  .price-table td.note {
+  .price-row:last-child { border-bottom: none; }
+  .price-row:hover { background: var(--cream); }
+  .pr-name { font-size: 13px; color: #3a3a4a; font-weight: 400; flex: 1; }
+  .pr-price {
+    font-size: 14px; color: var(--accent); font-weight: 500;
+    font-family: 'Noto Serif JP', serif; white-space: nowrap; margin-left: 16px;
+  }
+  .price-note {
     font-size: 11px; color: var(--muted); font-weight: 300;
-    padding-top: 0; padding-bottom: 12px; line-height: 1.7;
+    padding: 4px 16px 12px; line-height: 1.7;
     border-bottom: 1px solid var(--rule);
   }
 
@@ -385,21 +387,15 @@
   <!-- ADDITIONAL PRICING -->
   <div class="section-label d4"><span>追加作業の料金目安</span></div>
   <div class="price-table-wrap d4">
-    <table class="price-table">
-      <tr><td>データ移行</td><td>3,000円〜</td></tr>
-      <tr><td>メール設定追加</td><td>2,000円〜</td></tr>
-      <tr><td>アプリ追加導入</td><td>2,000円〜</td></tr>
-      <tr><td>会議アプリのインストール・無料アカウント登録</td><td>2,000円〜</td></tr>
-      <tr><td>周辺機器追加設定</td><td>2,000円〜</td></tr>
-      <tr><td>バックアップ設定</td><td>3,000円〜</td></tr>
-      <tr><td>複合機PDF送信設定</td><td>2,000円〜10,000円</td></tr>
-      <tr>
-        <td class="note" colspan="2">
-          機種やネットワーク環境により作業内容が異なります。簡易設定は短時間で完了しますが、メーカーマニュアルの確認が必要な場合は別途お時間をいただきます。なお、複合機本体のネットワーク設定は対象外となります。
-        </td>
-      </tr>
-      <tr><td>VBA／Python簡易自動化</td><td>5,000円〜</td></tr>
-    </table>
+    <div class="price-row"><span class="pr-name">データ移行</span><span class="pr-price">3,000円〜</span></div>
+    <div class="price-row"><span class="pr-name">メール設定追加</span><span class="pr-price">2,000円〜</span></div>
+    <div class="price-row"><span class="pr-name">アプリ追加導入</span><span class="pr-price">2,000円〜</span></div>
+    <div class="price-row"><span class="pr-name">会議アプリのインストール・無料アカウント登録</span><span class="pr-price">2,000円〜</span></div>
+    <div class="price-row"><span class="pr-name">周辺機器追加設定</span><span class="pr-price">2,000円〜</span></div>
+    <div class="price-row"><span class="pr-name">バックアップ設定</span><span class="pr-price">3,000円〜</span></div>
+    <div class="price-row"><span class="pr-name">複合機PDF送信設定</span><span class="pr-price">2,000円〜10,000円</span></div>
+    <div class="price-note">機種やネットワーク環境により作業内容が異なります。簡易設定は短時間で完了しますが、メーカーマニュアルの確認が必要な場合は別途お時間をいただきます。なお、複合機本体のネットワーク設定は対象外となります。</div>
+    <div class="price-row"><span class="pr-name">VBA／Python簡易自動化</span><span class="pr-price">5,000円〜</span></div>
   </div>
 
   <!-- NOTES -->
