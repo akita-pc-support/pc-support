@@ -184,12 +184,17 @@
     padding: 18px 20px;
     opacity: 0; animation: fadeUp .7s ease forwards;
   }
-  .notes ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes ul, .notes ol { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 4px; }
+  .notes ol { counter-reset: notes-counter; }
   .notes li {
     font-size: 12px; color: #5a5a6a; line-height: 1.7;
-    padding-left: 16px; position: relative;
+    padding-left: 20px; position: relative;
   }
-  .notes li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 3px; }
+  .notes ul li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 3px; }
+  .notes ol li { counter-increment: notes-counter; }
+  .notes ol li::before { content: counter(notes-counter) '.'; position: absolute; left: 0; color: var(--accent); font-size: 11px; font-weight: 600; top: 1px; }
+  .notes li small { font-size: 11px; color: var(--muted); }
+  .notes p { font-size: 12px; color: #5a5a6a; }
 
   /* ── FOR YOU ── */
   .foryou {
@@ -401,6 +406,22 @@
   <!-- NOTES -->
   <div class="section-label d5"><span>注意事項</span></div>
   <div class="notes d5">
+    <p style="font-weight:600; margin-bottom:8px;">【事前にご準備いただく情報】</p>
+    <ol>
+      <li>Microsoftアカウント（メールアドレス・パスワード）<br><small>※不明な場合は新規作成にて対応いたします</small></li>
+      <li>ご利用中のメールアカウント情報（各サービスごと）<br><small>例：Gmail、OCNメールなど</small></li>
+      <li>Wi-Fi情報（SSID・パスワード）</li>
+      <li>ネットワーク環境<br><small>・LAN接続の有無　・Wi-Fiとの併用有無</small></li>
+      <li>プリンタ情報（メーカー名・型番）<br><small>※事前にドライバ準備を行います</small></li>
+      <li>独自アプリケーションの有無<br><small>※内容により別途追加料金となります</small></li>
+    </ol>
+    <p style="font-weight:600; margin:16px 0 8px;">【作業時間と料金について】</p>
+    <ul>
+      <li>標準作業時間：2〜3時間を想定しております</li>
+      <li>事前準備情報が揃っていない場合や、各種パスワードの確認・調査が必要となる場合は作業時間が延長となることがあり、その場合は追加料金をお願いする場合がございます</li>
+      <li>追加料金：30分ごとに 1,000円</li>
+    </ul>
+    <p style="font-weight:600; margin:16px 0 8px;">【その他】</p>
     <ul>
       <li>お支払い方法は<strong>現金</strong>または<strong>銀行振込</strong>に対応しています</li>
       <li>データ移行はデータ量により、操作手順のご説明にとどまる場合があります</li>
