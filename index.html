@@ -120,7 +120,10 @@
     content: ''; position: absolute; inset: 0;
     background: radial-gradient(ellipse 80% 100% at 50% 120%, rgba(200,144,42,.2) 0%, transparent 60%);
   }
-  .price-label { font-size: 11px; letter-spacing: .16em; color: rgba(255,255,255,.45); font-weight: 300; margin-bottom: 8px; }
+  .price-label {
+    font-size: 11px; letter-spacing: .16em; color: rgba(255,255,255,.45);
+    font-weight: 300; margin-bottom: 8px;
+  }
   .price-regular {
     font-size: 15px; color: rgba(255,255,255,.4); font-weight: 300;
     text-decoration: line-through; margin-bottom: 4px;
@@ -130,14 +133,20 @@
     font-size: clamp(36px, 9vw, 56px); font-weight: 700;
     color: var(--accent-light); line-height: 1;
   }
-  .price-main small { font-size: clamp(14px, 3vw, 18px); font-weight: 400; color: rgba(255,255,255,.55); margin-left: 6px; }
+  .price-main small {
+    font-size: clamp(14px, 3vw, 18px); font-weight: 400;
+    color: rgba(255,255,255,.55); margin-left: 6px;
+  }
   .price-campaign {
     display: inline-block; margin-top: 10px;
     background: rgba(200,144,42,.25); border: 1px solid rgba(200,144,42,.4);
     border-radius: 2px; padding: 4px 12px;
     font-size: 12px; color: var(--accent-light); font-weight: 400; letter-spacing: .06em;
   }
-  .price-desc { margin-top: 12px; font-size: 12px; color: rgba(255,255,255,.5); font-weight: 300; line-height: 1.8; }
+  .price-desc {
+    margin-top: 12px; font-size: 12px; color: rgba(255,255,255,.5);
+    font-weight: 300; line-height: 1.8;
+  }
 
   /* ── SERVICE GRID ── */
   .service-grid {
@@ -177,6 +186,119 @@
     border-bottom: 1px solid var(--rule);
   }
 
+  /* ── PRICING SECTION CARDS ── */
+  .pricing-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    opacity: 0;
+    animation: fadeUp .7s ease forwards;
+  }
+  .student-pack-card {
+    background: var(--cream);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    padding: 22px 22px 18px;
+    box-shadow: 0 4px 18px rgba(26,26,46,.05);
+    position: relative;
+    overflow: hidden;
+  }
+  .student-pack-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 22px; right: 22px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+  .student-pack-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .student-pack-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    color: var(--deep);
+    line-height: 1.5;
+  }
+  .student-pack-target {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: .08em;
+    margin-top: 4px;
+  }
+  .student-pack-price {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 28px;
+    color: var(--accent);
+    white-space: nowrap;
+    line-height: 1.1;
+  }
+  .student-pack-price small {
+    font-size: 14px;
+    color: #7c6a4f;
+    margin-left: 4px;
+  }
+  .student-pack-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .student-pack-list li {
+    font-size: 13px;
+    color: #3a3a4a;
+    line-height: 1.8;
+    padding-left: 18px;
+    position: relative;
+  }
+  .student-pack-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: var(--accent);
+    font-size: 10px;
+  }
+  .student-pack-note {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #7a6240;
+    line-height: 1.7;
+  }
+
+  /* ── CONTRIBUTION MESSAGE ── */
+  .contribution-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 26px 24px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(26,26,46,.05);
+    opacity: 0;
+    animation: fadeUp .7s ease forwards;
+  }
+  .contribution-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 24px; right: 24px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+  .contribution-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  .contribution-text {
+    font-size: 14px;
+    color: #3a3a4a;
+    line-height: 2;
+  }
+
   /* ── NOTES ── */
   .notes {
     background: var(--cream); border: 1px solid var(--rule);
@@ -184,15 +306,25 @@
     padding: 18px 20px;
     opacity: 0; animation: fadeUp .7s ease forwards;
   }
-  .notes ul, .notes ol { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 4px; }
+  .notes ul, .notes ol {
+    list-style: none; display: flex; flex-direction: column;
+    gap: 8px; margin-bottom: 4px;
+  }
   .notes ol { counter-reset: notes-counter; }
   .notes li {
     font-size: 12px; color: #5a5a6a; line-height: 1.7;
     padding-left: 20px; position: relative;
   }
-  .notes ul li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 3px; }
+  .notes ul li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--accent); font-size: 10px; top: 3px;
+  }
   .notes ol li { counter-increment: notes-counter; }
-  .notes ol li::before { content: counter(notes-counter) '.'; position: absolute; left: 0; color: var(--accent); font-size: 11px; font-weight: 600; top: 1px; }
+  .notes ol li::before {
+    content: counter(notes-counter) '.';
+    position: absolute; left: 0; color: var(--accent);
+    font-size: 11px; font-weight: 600; top: 1px;
+  }
   .notes li small { font-size: 11px; color: var(--muted); }
   .notes p { font-size: 12px; color: #5a5a6a; }
 
@@ -229,10 +361,14 @@
   }
   .cta-title {
     font-family: 'Noto Serif JP', serif;
-    font-size: 15px; color: rgba(255,255,255,.9); line-height: 1.9; margin-bottom: 6px;
+    font-size: 15px; color: rgba(255,255,255,.9);
+    line-height: 1.9; margin-bottom: 6px;
   }
   .cta-title em { color: var(--accent-light); font-style: normal; }
-  .cta-sub { font-size: 12px; color: rgba(255,255,255,.4); letter-spacing: .08em; margin-bottom: 22px; }
+  .cta-sub {
+    font-size: 12px; color: rgba(255,255,255,.4);
+    letter-spacing: .08em; margin-bottom: 22px;
+  }
 
   /* ── TALLY BUTTON ── */
   .tally-btn {
@@ -264,8 +400,13 @@
     margin-bottom: 16px;
   }
   .contact-divider::before,
-  .contact-divider::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.12); }
-  .contact-divider span { font-size: 11px; color: rgba(255,255,255,.3); white-space: nowrap; letter-spacing: .1em; }
+  .contact-divider::after {
+    content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.12);
+  }
+  .contact-divider span {
+    font-size: 11px; color: rgba(255,255,255,.3);
+    white-space: nowrap; letter-spacing: .1em;
+  }
 
   .contact-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;
@@ -285,7 +426,8 @@
     color: inherit; text-decoration: none;
   }
   .contact-box .c-note {
-    font-size: 11px; color: rgba(255,255,255,.35); margin-top: 6px; font-weight: 300; line-height: 1.7;
+    font-size: 11px; color: rgba(255,255,255,.35);
+    margin-top: 6px; font-weight: 300; line-height: 1.7;
   }
 
   .qr-box {
@@ -300,9 +442,12 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 20px; flex-shrink: 0;
   }
-  .qr-box p { font-size: 11px; color: rgba(255,255,255,.3); font-weight: 300; line-height: 1.6; text-align: left; }
+  .qr-box p {
+    font-size: 11px; color: rgba(255,255,255,.3);
+    font-weight: 300; line-height: 1.6; text-align: left;
+  }
 
-  .cta-note { font-size: 11px; color: rgba(255,255,255,.28); }
+  .cta-note { font-size: 11px; color: rgba(255,255,255,.28); line-height: 1.8; }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
@@ -323,9 +468,11 @@
     .service-item.full { grid-column: span 1; }
     .contact-grid { grid-template-columns: 1fr; }
     .qr-box { grid-column: span 1; }
-    .profile-card, .price-box, .cta-block { padding: 22px 16px; }
+    .profile-card, .price-box, .cta-block, .student-pack-card, .contribution-card { padding: 22px 16px; }
     .hero { padding: 44px 18px 38px; }
     .tally-btn { font-size: 15px; padding: 16px 20px; }
+    .student-pack-head { flex-direction: column; }
+    .student-pack-price { font-size: 24px; }
   }
 </style>
 </head>
@@ -345,7 +492,7 @@
 <!-- CAMPAIGN BANNER -->
 <div class="campaign">
   <p>
-    <strong>🎉 開通記念：先着10名様限定</strong>
+    <strong>🎉 開通記念：残り7名様限定</strong>
     標準作業を 7,000円（税込）にてご提供中
   </p>
 </div>
@@ -389,23 +536,54 @@
     <div class="service-item full"><span class="si">🤖</span><span>無料AI導入支援</span></div>
   </div>
 
-  <!-- ADDITIONAL PRICING -->
-  <div class="section-label d4"><span>追加作業の料金目安</span></div>
-  <div class="price-table-wrap d4">
-    <div class="price-row"><span class="pr-name">データ移行</span><span class="pr-price">3,000円〜</span></div>
-    <div class="price-row"><span class="pr-name">メール設定追加</span><span class="pr-price">2,000円〜</span></div>
-    <div class="price-row"><span class="pr-name">アプリ追加導入</span><span class="pr-price">2,000円〜</span></div>
-    <div class="price-row"><span class="pr-name">会議アプリのインストール・無料アカウント登録</span><span class="pr-price">2,000円〜</span></div>
-    <div class="price-row"><span class="pr-name">周辺機器追加設定</span><span class="pr-price">2,000円〜</span></div>
-    <div class="price-row"><span class="pr-name">バックアップ設定</span><span class="pr-price">3,000円〜</span></div>
-    <div class="price-row"><span class="pr-name">複合機PDF送信設定</span><span class="pr-price">2,000円〜10,000円</span></div>
-    <div class="price-note">機種やネットワーク環境により作業内容が異なります。簡易設定は短時間で完了しますが、メーカーマニュアルの確認が必要な場合は別途お時間をいただきます。なお、複合機本体のネットワーク設定は対象外となります。</div>
-    <div class="price-row"><span class="pr-name">VBA／Python簡易自動化</span><span class="pr-price">5,000円〜</span></div>
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-label d4"><span>追加作業の料金目安</span></div>
+    <div class="pricing-stack d4">
+      <div class="price-table-wrap">
+        <div class="price-row"><span class="pr-name">データ移行</span><span class="pr-price">3,000円〜</span></div>
+        <div class="price-row"><span class="pr-name">メール設定追加</span><span class="pr-price">2,000円〜</span></div>
+        <div class="price-row"><span class="pr-name">アプリ追加導入</span><span class="pr-price">2,000円〜</span></div>
+        <div class="price-row"><span class="pr-name">会議アプリのインストール・無料アカウント登録</span><span class="pr-price">2,000円〜</span></div>
+        <div class="price-row"><span class="pr-name">周辺機器追加設定</span><span class="pr-price">2,000円〜</span></div>
+        <div class="price-row"><span class="pr-name">バックアップ設定</span><span class="pr-price">3,000円〜</span></div>
+        <div class="price-row"><span class="pr-name">複合機PDF送信設定</span><span class="pr-price">2,000円〜10,000円</span></div>
+        <div class="price-note">機種やネットワーク環境により作業内容が異なります。簡易設定は短時間で完了しますが、メーカーマニュアルの確認が必要な場合は別途お時間をいただきます。なお、複合機本体のネットワーク設定は対象外となります。</div>
+        <div class="price-row"><span class="pr-name">VBA／Python簡易自動化</span><span class="pr-price">5,000円〜</span></div>
+      </div>
+
+      <div class="student-pack-card">
+        <div class="student-pack-head">
+          <div>
+            <h3 class="student-pack-title">学生限定応援パック</h3>
+            <p class="student-pack-target">対象：高校生・大学生</p>
+          </div>
+          <div class="student-pack-price">5,000<small>円（税込）</small></div>
+        </div>
+        <div class="service-grid">
+          <div class="service-item"><span class="si">🖥</span><span>新規パソコンの初期設定</span></div>
+          <div class="service-item"><span class="si">📶</span><span>Wi-Fi設定</span></div>
+          <div class="service-item"><span class="si">👤</span><span>アカウント設定</span></div>
+          <div class="service-item"><span class="si">📧</span><span>Gmail作成支援</span></div>
+        </div>
+        <p class="student-pack-note">※学生証の提示が必要です</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTRIBUTION MESSAGE -->
+  <div class="section-label d5"><span>地域への想い</span></div>
+  <div class="contribution-card d5">
+    <h2 class="contribution-title">地域貢献への想い</h2>
+    <p class="contribution-text">
+      30年以上のエンジニア経験を活かし、地元秋田の学生さんが学習に専念できるようサポートいたします。
+      飲み会1回分程度の費用で、プロの技術を提供します。
+    </p>
   </div>
 
   <!-- NOTES -->
-  <div class="section-label d5"><span>注意事項</span></div>
-  <div class="notes d5">
+  <div class="section-label d6"><span>注意事項</span></div>
+  <div class="notes d6">
     <p style="font-weight:600; margin-bottom:8px;">【事前にご準備いただく情報】</p>
     <ol>
       <li>Microsoftアカウント（メールアドレス・パスワード）<br><small>※不明な場合は新規作成にて対応いたします</small></li>
@@ -434,8 +612,8 @@
   </div>
 
   <!-- FOR YOU -->
-  <div class="section-label d6"><span>こんな方におすすめ</span></div>
-  <div class="foryou d6">
+  <div class="section-label d7"><span>こんな方におすすめ</span></div>
+  <div class="foryou d7">
     <div class="foryou-item">
       <div class="foryou-check">✓</div>
       <p>新しいパソコンを「すぐ使える状態」に整えてほしい</p>
@@ -455,8 +633,8 @@
   </div>
 
   <!-- CTA -->
-  <div class="section-label d7"><span>お問い合わせ・お申し込み</span></div>
-  <div class="cta-block d7">
+  <div class="section-label d8"><span>お問い合わせ・お申し込み</span></div>
+  <div class="cta-block d8">
     <p class="cta-title">
       「ベテランに<em>直接</em>相談したい」<br>
       「しっかり設定して<em>安心</em>して使い始めたい」
@@ -492,4 +670,9 @@
       </div>
     </div>
 
-    <p class="cta-note">秋田市を中心とした周辺地域に出張対応<
+    <p class="cta-note">秋田市を中心とした周辺地域に出張対応</p>
+  </div>
+
+</div>
+</body>
+</html>
